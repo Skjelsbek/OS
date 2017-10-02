@@ -1,0 +1,13 @@
+#!/bin/bash
+while [ $# -gt 0 ]
+do 
+echo "$1"
+shift
+done
+
+x=0
+while [ $x -lt 10 ]
+do
+echo "$x"
+let "x=x+1"
+done

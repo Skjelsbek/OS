@@ -1,0 +1,63 @@
+#!/bin/bash
+
+questions="$1"
+i=0
+while read -r line
+do
+	qArr[$i]="$line"
+	i=$[i+1]
+done < "$questions"
+
+cAnswers="$2"
+let "i=0"
+while read -r line
+do
+	cArr[$i]="$line"
+	i=$[i+1]	
+done < "$cAnswers"
+
+correct=0
+wrong=0
+
+if [ -n "$3" ]
+then
+	uAnswers="$3"
+	let "i=0"
+	while read -r line
+	do
+        	uArr[$i]="$line"
+		i=$[i+1]
+	done < "$uAnswers"
+
+        for (( j=0; j<$i; j++ ))
+        do
+                if [ "${cArr[$j]}" == "${uArr[$j]}" ]
+                then
+                        correct=$[correct+1]
+		fi
+        done
+
+        echo "$correct"
+else
+	for (( j=0; j<$i; j++ ))
+	do
+		echo "${qArr[$j]}"
+		while [ -z "${uArr[$j]}" ]
+		do
+			read -p "Enter ans: " uArr[$j]
+		done
+	done
+
+	for (( j=0; j<$i; j++ ))
+	do
+		if [ "${cArr[$j]}" == "${uArr[$j]}" ]
+		then
+			correct=$[correct+1]
+		else
+			wrong=$[wrong+1]
+		fi
+	done
+
+	echo "$correct"
+	echo "$wrong"
+fi

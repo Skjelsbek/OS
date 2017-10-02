@@ -1,0 +1,10 @@
+Does pizza taste good?
+Is winter the same as summer?
+Can Nils do this task?
+Am i a nice person?
+Does this script work as of now?
+Will it ever work?
+Do i need more coffee to make this work?
+Do you find shell scripting fun?
+Is it easy to learn shell scripting?
+Do you like shrimps?

@@ -1,0 +1,12 @@
+1. /etc/bashrc
+2. export PATH=$PATH:/home/john/bin
+3. /etc/security/limits.conf
+4. mariusz - maxlogins 3
+5. adduser tatiana -s /bin/sh -g students ????
+6.
+7. setfacl /usr/share/ccsm mariusz=r
+8. chmod 744 /usr/share/ccsm
+9.
+10. ln -s /usr/share/ccsm ptr
+11. 
+12.

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+tot=0
+for entry in "$1"/*
+do
+	file=$entry
+	size=$(wc -c <"$file")
+	let "odd=size%2"
+	if [ "$2" == "even" -a $odd -eq 0 ]
+	then
+		tot=$[tot+size]
+	elif [ "$2" == "odd" -a $odd -ne 0 ]
+	then
+		tot=$[tot+size]
+	fi
+done
+echo "$tot"

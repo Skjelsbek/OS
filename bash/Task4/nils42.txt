@@ -1,0 +1,23 @@
+#!/bin/bash
+correct=0
+wrong=0
+for num in {1..10} ;
+do
+	line2=$(sed "${num}q;d" $2)
+	if [ $# -eq 2 ] ; then
+		line1=$(sed "${num}q;d" $1)
+		echo $line1
+		read line3
+	else
+		line3=$(sed "${num}q;d" $3)
+	fi
+	if [ $line2 == $line3 ] ; then
+		let "correct += 1"
+	else
+		let "wrong += 1"
+	fi
+done
+echo $correct
+if [ $# -eq 2 ] ; then
+	echo $wrong
+fi

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+answer="Something went wrong!"
+
+if [ "$3" == "+" ]
+then
+	let "answer=$1+$2"
+elif [ "$3" == "-" ]
+then
+	let "answer=$1-$2"
+elif [ "$3" == "*" ]
+then
+	let "answer=$1*$2"
+elif [ "$3" == "/" ]
+then
+	let "answer=$1/$2"
+elif [ "$3" == "^" ]
+then
+	answer=1
+	for(( i=0; i<$2; i++ ))
+	do
+		let "answer=answer*$1"
+	done
+fi
+
+echo "$answer"

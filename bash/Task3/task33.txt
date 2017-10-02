@@ -1,0 +1,9 @@
+#!/bin/bash
+
+nof=0
+for entry in "$1"/*
+do
+	nof=$[nof+1]
+done
+echo "$nof"
+
